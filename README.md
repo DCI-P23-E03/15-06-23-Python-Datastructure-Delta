@@ -1,30 +1,9 @@
 # 15-06-23-Python-Datastructure-Delta
-# Travel Destination Recommendation System
-### Data Types:
-1. Lists: 
-   - List of popular travel destinations
-   - List of user preferences and ratings for different destinations
+# A quest game
 
-2. Dictionaries:
-   - Dictionary mapping travel destinations to their respective features (e.g., attractions, climate, cost)
-   - Dictionary mapping user preferences to their corresponding weights for different features
-
-### Project Description:
-The goal of the project is to create a travel destination recommendation system that suggests suitable travel destinations based on user preferences. The system will use a combination of lists and dictionaries to store and manipulate the necessary data.
-
-1. Lists:
-   - The list of popular travel destinations will serve as the reference for the recommendation system. It can include various destinations such as cities, countries, or specific landmarks.
-   - The list of user preferences and ratings will capture the individual user's preferences for different aspects of travel, such as climate, attractions, cost, safety, etc. Each user's preferences will be stored as a list, allowing for easy comparison and calculation of similarity scores with destination features.
-
-2. Dictionaries:
-   - The dictionary mapping travel destinations to their features will provide a structured representation of the characteristics of each destination. For example, a destination could have attributes like attractions, climate, cost, safety level, etc. The dictionary will allow for efficient retrieval of destination features based on user input.
-   - The dictionary mapping user preferences to their weights for different features will allow users to assign relative importance to various aspects of travel. For example, one user might prioritize attractions, while another user might prioritize cost. The weights assigned by users will be used to calculate the similarity scores between their preferences and destination features.
-
-Additional Tasks (to be added):
-In the coming days, additional tasks for the project could include:
-- Implementing the recommendation algorithm based on user preferences and destination features.
-- Developing a user-friendly interface to input preferences and display recommended destinations.
-- Incorporating user feedback and updating the recommendation system accordingly.
-- Enhancing the system with additional features such as filtering destinations by budget, time of year, or travel interests.
-- Conducting testing and evaluation to assess the performance and accuracy of the recommendation system.
-
+- The hero of the game starts at initial point on the map (coordinates (0:0))
+   +  Optional, a random map can be generated before the start of the game.
+   + A poorman's option is just a tree (choose what to do at each step)
+-  At each step your can either look for an item or try to answer a random question from a list. For correct answer you get an item.
+- The goal is to collect a certain set of items that will be used to get access to a final challenge (a quiz or probably some mini-quest). There you either win or lose.
+   + Optionally, creat a log of player's action in form of a story.
