@@ -1,6 +1,8 @@
 from os import system as x
+# pip install py-getch
 import getch
 
+#inputing size of the map. Only integers greater than 1 are allowed
 while True:
    try:
       sx=int(input("Size x? "))
@@ -16,15 +18,17 @@ while True:
     if (sy>1):
        break
 
+#elements of the map
+
 top="┌───"+"┬───"*(sx-2)+"┬───┐\n"
 middle="│   "*sx+"│\n"
 midrow="├───"+"┼───"*(sx-2)+"┼───┤\n"
 bottom="└───"+"┴───"*(sx-2)+"┴───┘\n"
 
-#print(top+(middle*3+midrow)*3+middle*3+bottom)
-def mid_insert(i,sx):
+
+def mid_insert(i,sx):    # puts an X in the ith column 
     return "│   "*i+"│ X "+"│   "*(sx-1-i)+"│\n"
-def print_coord(i,j,sx,sy):
+def print_coord(i,j,sx,sy):    #creates a map with x in the ith column and jth row
     if j<sy-1:
         print(top+(middle*3+midrow)*j+middle+mid_insert(i,sx)+middle+midrow+(middle*3+midrow)*(sy-2-j)+middle*3+bottom)
     else:
@@ -35,6 +39,9 @@ j=1
 x("clear")
 print_coord(i,j,sx,sy)  
 print("w,a,s,d,x?")
+
+#walks the map
+
 while True:
     
     direct=getch.getch()
