@@ -1,6 +1,17 @@
 # 15-06-23-Python-Datastructure-Delta
 # Travel Destination Recommendation System
 ### Data Types:
+
+1. Lists:
+   - The list of popular travel destinations will contain a collection of strings representing various travel destinations. For example, it could include entries like "Paris," "Tokyo," "New York City," etc.
+   - The list of user preferences and ratings will consist of individual user profiles, where each profile is a list containing ratings or preferences for different aspects of travel. These aspects could include climate (e.g., "warm," "moderate," "cold"), attractions (e.g., "beaches," "historical sites," "adventure activities"), cost (e.g., "affordable," "moderate," "expensive"), safety (e.g., "safe," "average," "unsafe"), and any other relevant criteria.
+
+2. Dictionaries:
+   - The dictionary mapping travel destinations to their features will be a collection of key-value pairs, where the keys represent the travel destinations, and the values represent the features associated with each destination. For example, you can use the destination names as keys and associate them with dictionaries representing the destination's features. These features could include attractions (e.g., a list of strings representing the attractions at that destination), climate (e.g., a string describing the typical weather conditions), cost (e.g., a numerical value indicating the average cost of visiting the destination), safety (e.g., a string indicating the safety level), and so on.
+   - The dictionary mapping user preferences to their weights for different features will be a collection of key-value pairs, where the keys represent the user preferences, and the values represent the weights assigned to each preference. For example, you can use the preference names as keys (e.g., "attractions," "cost," "climate") and assign numerical weights to each preference based on user input. These weights will help calculate similarity scores between user preferences and destination features.
+
+To work on the project, you can start by creating and populating the lists and dictionaries with sample data. You can then develop algorithms and functions to calculate similarity scores between user preferences and destination features, and use those scores to recommend suitable travel destinations to users. Additionally, you can design a user interface to input user preferences and display the recommended destinations.
+
 1. Lists: 
    - List of popular travel destinations
    - List of user preferences and ratings for different destinations
