@@ -33,8 +33,8 @@ def print_coord(i,j,sx,sy):    #creates a map with x in the ith column and jth r
         print(top+(middle*3+midrow)*j+middle+mid_insert(i,sx)+middle+midrow+(middle*3+midrow)*(sy-2-j)+middle*3+bottom)
     else:
         print(top+(middle*3+midrow)*j+middle+mid_insert(i,sx)+middle+bottom)
-i=1
-j=1
+i=0
+j=0
 
 x("clear")
 print_coord(i,j,sx,sy)  
