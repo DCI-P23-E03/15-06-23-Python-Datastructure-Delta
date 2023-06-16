@@ -1,5 +1,4 @@
 # 15-06-23-Python-Datastructure-Delta
-# 15-06-23-Python-Datastructure-Delta
 
 # Travel Destination Recommendation System
 ### Data Types:
