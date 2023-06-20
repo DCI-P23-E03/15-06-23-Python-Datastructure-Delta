@@ -1,4 +1,5 @@
 # 15-06-23-Python-Datastructure-Delta
+
 # Travel Destination Recommendation System
 ### Data Types:
 
@@ -56,4 +57,14 @@ The goal of the project is to create a travel destination recommendation system 
 
 
 
+<<<<<<< HEAD
 
+=======
+Additional Tasks (to be added):
+In the coming days, additional tasks for the project could include:
+- Implementing the recommendation algorithm based on user preferences and destination features.
+- Developing a user-friendly interface to input preferences and display recommended destinations.
+- Incorporating user feedback and updating the recommendation system accordingly.
+- Enhancing the system with additional features such as filtering destinations by budget, time of year, or travel interests.
+- Conducting testing and evaluation to assess the performance and accuracy of the recommendation system.
+>>>>>>> f3d4b4775521c1651a06c3bb4021239cf464000d
