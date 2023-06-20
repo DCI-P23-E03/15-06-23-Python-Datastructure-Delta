@@ -3,6 +3,7 @@ from os import system as x
 from termcolor import colored
 # pip install py-getch
 import getch
+import Sergey
 
 N=4 # number of menu items
 W=8 # width of menu item
