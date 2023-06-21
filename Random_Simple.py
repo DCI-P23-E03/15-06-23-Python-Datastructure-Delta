@@ -154,7 +154,9 @@ database = {
 }
 
 
-random_destination = random.choice(list(database.keys()))
+destinations = list(database.keys())
+random_index = random.randint(0, len(destinations) - 1)
+random_destination = destinations[random_index]
 destination_data = database[random_destination]
 
 information = destination_data["Information"]
@@ -162,8 +164,6 @@ climate = destination_data["Climate"]
 price = destination_data["Price"]
 safety = destination_data["Safety"]
 
-print("We do suggest you to take a look at data of:", random_destination)
-print(information)
-print("Climate:", climate)
-print("Price:", price)
-print("Safety:", safety)
+result = f"We do suggest you to take a look at data of: {random_destination}\n{information}\nClimate: {climate},\nPrice: {price},\nSafety: {safety}"
+print(result)
+
