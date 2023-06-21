@@ -1,3 +1,22 @@
+import random
+def random_value(variable):
+    if isinstance(variable, int):
+        return random.randint(1, variable)
+    elif isinstance(variable, float):
+        return random.uniform(0, variable)
+    elif isinstance(variable, str):
+        return random.choice(variable)
+    elif isinstance(variable, list):
+        return random.choice(variable)
+    elif isinstance(variable, dict):
+        country_name = random.choice(list(variable.keys()))
+        country_info = variable[country_name]['Information']
+        country_data = ',\n'.join(f"{key}: {value}" for key, value in variable[country_name].items() if key != 'Information')
+        return f"We do suggest you to take a look at data of: {country_name}\n{country_info}\n{country_data}"
+    else:
+        return None  # Handle unsupported variable types
+
+
 
 database = {
     "Germany": {
@@ -152,21 +171,6 @@ database = {
     }
 }
 
-def CreateAllDestinations():
-    return  list(database.keys())
 
-
-def PrintCountryInfo(country):
-    info = database[country]["Information"]
-    climate = database[country]["Climate"]
-    price = database[country]["Price"]
-    safety = database[country]["Safety"]
-
-    print("Country:", country)
-    print("Information:", info)
-    print("Climate:", climate)
-    print("Price:", price)
-    print("Safety:", safety)
-
-AllDestinations = CreateAllDestinations()
-print(AllDestinations)
+random_result = random_value(database)
+print(random_result)
