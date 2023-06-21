@@ -123,6 +123,28 @@ def PrintMenu(i,j,N,W):     #prints the menu
         DropOutMenu=DropOutMenuOpen(i,j,W)
         print(top+middle+bottomOpen+DropOutMenu)
 
+def ReadDatabase():
+    database={}
+    with open("database.txt") as f:
+        string=f.read().replace("\t","").splitlines()
+        print(len(string))
+        for i in range(0,len(string),6):
+            print(i)
+            database[string[i]]={"Information":string[i+1],"Climate":int(string[i+2]),"Price":int(string[i+3]),"Safety":int(string[i+4])}
+        print(database)
+
+def WriteDatabase(database):
+    with open("database.txt","wt") as f:
+        string=""
+        for i,j in database.items():
+            
+            string+=i+"\n\t"
+            for k in j.values():
+                string+=str(k)+"\n\t"
+            string+="\n" 
+        f.write(string)
+        
+
 
 
 
