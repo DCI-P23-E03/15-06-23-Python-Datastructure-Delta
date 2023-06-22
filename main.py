@@ -4,7 +4,9 @@ from termcolor import colored
 # pip install py-getch
 import getch
 import Sergey
+import random
 
+"""
 database = {
     "Germany": {
         "Information": "Rich history, vibrant cities, and a cool climate",
@@ -157,6 +159,9 @@ database = {
         "Safety": 4
     }
 }
+"""
+
+database=Sergey.ReadDatabase()
 
 def CreateAllDestinations(dict):
     return  list(dict.keys())
@@ -229,19 +234,42 @@ def PrintMenu(i,j):
 def Execute(i,j):
     if i==1 and j==2:
         input("Enter a countryname")
+        print("\nPress any key to return to menu, x to quit.")
+        Mov=getch.getch()
+        return Mov
     elif i==1 and j==3:
-        input("Here is a random country")
+        Sergey.ShowCountryInfo(random.choice(AllDestinations), database)
+        print("\nPress any key to return to menu, x to quit.")
+        Mov=getch.getch()
+        return Mov
     elif i==2 and j==2:
         ListOfPref=Sergey.RunPromt()
         WeightedList=Sergey.AssignWeightedValues(ListOfPref,database)
-        print(WeightedList)
-        print(Sergey.OrderWeightedList(WeightedList))
-
-        getch.getch()
+        #print(WeightedList)
+        #print(Sergey.OrderWeightedList(WeightedList))
+        #print("Now you choose one country out of that options with Igor's block and get information about that country with Gloria's block")
+        Sergey.ShowCountryInfo(Sergey.OrderWeightedList(WeightedList)[0], database)
+        print("\nPress any key to return to menu, x to quit.")
+        Mov=getch.getch()
+        return Mov
     elif i==2 and j==3:
-        input("Enter your preferences and get a surprise")
+        ListOfPref=Sergey.RunPromt()
+        WeightedList=Sergey.AssignWeightedValues(ListOfPref,database)
+        #print(WeightedList)
+        #print(Sergey.OrderWeightedList(WeightedList))
+        #print("Now you get a random country out of this list with Sam's block and get information about that country with Gloria's block")
+        Sergey.ShowCountryInfo(random.choice(Sergey.OrderWeightedList(WeightedList)), database)
+        print("\nPress any key to return to menu, x to quit.")
+        Mov=getch.getch()
+        return Mov
     elif i==3 and j==1:
-        input("Enter a new country")
+        Sergey.AppendDatabase(database)
+        AllDestinations = CreateAllDestinations(database)
+        #print(database)
+        Sergey.WriteDatabase(database)
+        print("\nPress any key to return to menu, x to quit.")
+        Mov=getch.getch()
+        return Mov
     
 
 
@@ -274,17 +302,17 @@ while True:
             j=2
         else:
             j=1
-    if Move==" " and i==N:
+    if Move==" " and i==N:    #Exit menu item is assumed to be on the last spot.
         break
     if Move==" " and j>1:      #space executes command from submenu
-        Execute(i,j)
+        Move=Execute(i,j)
         i=1
         j=1
     elif Move==" " and j==1:     #if submenu not empty space opens it, otherwise executes command
         if len(Sergey.TopLevel[i-1])>1:
             j=2
         else:
-            Execute(i,j)
+            Move=Execute(i,j)
             i=1
             j=1
     Sergey.PrintMenu(i,j,N,W)

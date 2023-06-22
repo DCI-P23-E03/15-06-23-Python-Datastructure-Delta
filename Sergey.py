@@ -73,7 +73,7 @@ def OrderWeightedList(WeightedList):   #Sorts the destination according to Assig
         WeightedListStrippedChopped.append(WeightedList[i][0])
     return WeightedListStrippedChopped
 
-TopLevel = [[["Info","i"],"Input","Random"],[["Choose","c"],"Input","Random"],[["apPend","p"]],[["eXit","x"]]]
+TopLevel = [[["Info","i"],"Input","Random"],[["Choose","c"],"Input","Random"],[["apPend","p"]],[["eXit","x"]]] # Last item must be Exit
 
 def TopMenu(i,N,W):
     k=1
@@ -129,9 +129,10 @@ def ReadDatabase():
         string=f.read().replace("\t","").splitlines()
         print(len(string))
         for i in range(0,len(string),6):
-            print(i)
+            #print(i)
             database[string[i]]={"Information":string[i+1],"Climate":int(string[i+2]),"Price":int(string[i+3]),"Safety":int(string[i+4])}
-        print(database)
+        #print(database)
+    return database
 
 def WriteDatabase(database):
     with open("database.txt","wt") as f:
@@ -144,8 +145,98 @@ def WriteDatabase(database):
             string+="\n" 
         f.write(string)
         
+def ShowCountryInfo(country,database):
+    print("""
+    Travel Destination Recommendation System\n
+    Here, we want to make sure we recommend the best countries for you to travel.
+    """)
+    Prices=["Extremely affordable!", "Quite affordable!", "Reasonable prices!", "High-level location!", "Luxury travel!"]
+    Safety=["For those who enjoy danger!", "For risk-lovers!", "For those keeping their cool!", "Relaxed travel!", "Everything is taken care of!"]
+    if country in database:
+        print("Our recomendation is: "+country+ '\n'+ database[country]['Information']+"\n"+Prices[database[country]["Price"]-1]+"\n"+Safety[database[country]["Safety"]-1])
+    if country not in database:
+        print(f"We are sorry, {country} is not in our database")
 
+def AppendDatabase(database):
+    x("clear")
+    CurStr=""
+    country=input("Enter a new country to add to our database: ")
+    if country in database:
+        print("We already have this one.")
+    else: 
+        CurStr+=f"Enter a new country to add to our database: {country}\n"
+        
+        flag=0
+        while True:
+            x("clear")
+            if flag==0:
+                print(CurStr)
+                print(f"Rate the climate of {country} from 1 coldest to 5 hottest: ")
+            else:
+                x("clear")
+                print(CurStr)
+                print(f"Rate the climate of {country} "+colored("from 1 coldest to 5 hottest: ","red"))
+            Climate=getch.getch()
+            if not Climate.isnumeric():
+                flag=1
+            elif int(Climate)<1 or int(Climate)>5:
+                flag=1
+            else:
+                flag=0
+                CurStr+=f"Rate the climate of {country} from 1 coldest to 5 hottest: "+Climate+"\n"
+                break
+        
+        while True:
+            x("clear")
+            if flag==0:
+                print(CurStr)
+                print(f"Rate the prices in {country} from 1 cheapest to 5 most expensive: ")
+            else:
+                x("clear")
+                print(CurStr)
+                print(f"Rate the prices of {country} "+colored("from 1 cheapest to 5 most expensive: ","red"))
+            Prices=getch.getch()
+            if not Prices.isnumeric():
+                flag=1
+            elif int(Prices)<1 or int(Prices)>5:
+                flag=1
+            else:
+                flag=0
+                CurStr+=f"Rate the prices in {country} from 1 cheapest to 5 most expensive: "+Prices+"\n"
+                break
 
+        while True:
+            x("clear")
+            if flag==0:
+                print(CurStr)
+                print(f"Rate the safety in {country} from 1 war zone to 5 safest: ")
+            else:
+                x("clear")
+                print(CurStr)
+                print(f"Rate the safety of {country} "+colored("from 1 war zone to 5 safest: ","red"))
+            Safety=getch.getch()
+            if not Safety.isnumeric():
+                flag=1
+            elif int(Safety)<1 or int(Safety)>5:
+                flag=1
+            else:
+                flag=0
+                CurStr+=f"Rate the prices in {country} from 1 war zone to 5 safest: "+Safety+"\n"
+                break
+        
+        x("clear")
+        print(CurStr)
+        #print("\n")
+        Info=input(f"Write a few words about {country}: ")
+        print("\nThank you for your input. We added it to our database.")
+        database.update({
+            country:{
+                "Information":Info,
+                "Climate":int(Climate),
+                "Price":int(Prices),
+                "Safety":int(Safety)
+                    }
+                })
 
 
 
