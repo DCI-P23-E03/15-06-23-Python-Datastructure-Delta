@@ -5,6 +5,8 @@ from termcolor import colored
 import getch
 import Sergey
 import random
+import Random_Function
+import Igor
 
 """
 database = {
@@ -176,6 +178,7 @@ AllDestinations = Sergey.CreateAllDestinations(database)
 
 
 
+
 N=4 # number of menu items
 W=8 # width of menu item
 #TopLevel = [[["Info","i"],"Input","Random"],[["Choose","c"],"Input","Random"],[["apPend","p"]],[["eXit","x"]]]
@@ -240,25 +243,43 @@ def PrintMenu(i,j):
         print(top+middle+bottomOpen+DropOutMenu)
 """
 def Execute(i,j):
+    global AllDestinations
     if i==1 and j==2:
-        input("Enter a countryname")
+        choice=Igor.search_country(AllDestinations)
+        print(f"\nYour choice is {choice}.")
+        Sergey.ShowCountryInfo(choice, database)
         print("\nPress any key to return to menu, x to quit.")
         Mov=getch.getch()
         return Mov
     elif i==1 and j==3:
-        global AllDestinations
+        
         #AllDestinations = Sergey.CreateAllDestinations()
-        Sergey.ShowCountryInfo(random.choice(AllDestinations), database)
+        Sergey.ShowCountryInfo(Random_Function.random_value(AllDestinations), database)
         print("\nPress any key to return to menu, x to quit.")
         Mov=getch.getch()
         return Mov
     elif i==2 and j==2:
         ListOfPref=Sergey.RunPromt()
         WeightedList=Sergey.AssignWeightedValues(ListOfPref,database)
+        OrderderWeightedList=Sergey.OrderWeightedList(WeightedList)
+        string="According to our esperts the best options for you are: "
+        for i,country in enumerate(OrderderWeightedList):
+        
+            string+=country
+            if i<len(WeightedList)-1:
+                string+=", "
+            else:
+                string+="."
+        string+="\nStart typing the country you want to see."
+        print(string)
+        
         #print(WeightedList)
+        choice=Igor.search_country(OrderderWeightedList)
         #print(Sergey.OrderWeightedList(WeightedList))
         #print("Now you choose one country out of that options with Igor's block and get information about that country with Gloria's block")
-        Sergey.ShowCountryInfo(Sergey.OrderWeightedList(WeightedList)[0], database)
+        #Sergey.ShowCountryInfo(Sergey.OrderWeightedList(WeightedList)[0], database)
+        print(f"\nYour choice is {choice}.")
+        Sergey.ShowCountryInfo(choice, database)
         print("\nPress any key to return to menu, x to quit.")
         Mov=getch.getch()
         return Mov
@@ -268,7 +289,7 @@ def Execute(i,j):
         #print(WeightedList)
         #print(Sergey.OrderWeightedList(WeightedList))
         #print("Now you get a random country out of this list with Sam's block and get information about that country with Gloria's block")
-        Sergey.ShowCountryInfo(random.choice(Sergey.OrderWeightedList(WeightedList)), database)
+        Sergey.ShowCountryInfo(Random_Function.random_value(Sergey.OrderWeightedList(WeightedList)), database)
         print("\nPress any key to return to menu, x to quit.")
         Mov=getch.getch()
         return Mov

@@ -123,18 +123,18 @@ def PrintMenu(i,j,N,W):     #prints the menu
         DropOutMenu=DropOutMenuOpen(i,j,W)
         print(top+middle+bottomOpen+DropOutMenu)
 
-def ReadDatabase():
+def ReadDatabase(): # reads dictionary from database.txt
     database={}
     with open("database.txt") as f:
         string=f.read().replace("\t","").splitlines()
         print(len(string))
         for i in range(0,len(string),6):
             #print(i)
-            database[string[i]]={"Information":string[i+1],"Climate":int(string[i+2]),"Price":int(string[i+3]),"Safety":int(string[i+4])}
+            database[string[i].title()]={"Information":string[i+1],"Climate":int(string[i+2]),"Price":int(string[i+3]),"Safety":int(string[i+4])}
         #print(database)
     return database
 
-def WriteDatabase(database):
+def WriteDatabase(database):   # writes dictionary database to database.txt
     with open("database.txt","wt") as f:
         string=""
         for i,j in database.items():
@@ -145,7 +145,7 @@ def WriteDatabase(database):
             string+="\n" 
         f.write(string)
         
-def ShowCountryInfo(country,database):
+def ShowCountryInfo(country,database):  # types info about (country) from (database). Numerical values for Prices and Safety are replaced with fixed short phrases
     print("""
     Travel Destination Recommendation System\n
     Here, we want to make sure we recommend the best countries for you to travel.
@@ -157,10 +157,10 @@ def ShowCountryInfo(country,database):
     if country not in database:
         print(f"We are sorry, {country} is not in our database")
 
-def AppendDatabase(database):
+def AppendDatabase(database): #Adds an entry to the database. Pretty self-explainatory
     x("clear")
     CurStr=""
-    country=input("Enter a new country to add to our database (enter q at any moment to quit): ")
+    country=input("Enter a new country to add to our database (enter q at any moment to quit): ").capitalize()
     if country in database:
         print("We already have this one.")
     if country.upper()=="Q":
@@ -177,9 +177,10 @@ def AppendDatabase(database):
             else:
                 x("clear")
                 print(CurStr)
+                #Highlights red if entry not a digit from 1 to 5
                 print(f"Rate the climate of {country} "+colored("from 1 coldest to 5 hottest: ","red"))
             Climate=getch.getch()
-            if Climate.upper()=="Q":
+            if Climate.upper()=="Q":    #stops appending
                 return None
             if not Climate.isnumeric():
                 flag=1
