@@ -1,0 +1,174 @@
+Germany
+	Rich history, vibrant cities, and a cool climate
+	2
+	3
+	4
+	
+Japan
+	A blend of tradition and modernity with pleasant temperatures
+	4
+	3
+	4
+	
+Australia
+	Stunning landscapes, diverse wildlife, and a sunny climate
+	5
+	5
+	5
+	
+Canada
+	Breathtaking nature, friendly locals, and a cold climate
+	2
+	4
+	4
+	
+Italy
+	Art, culture, and delicious cuisine with a cold climate
+	2
+	3
+	3
+	
+Brazil
+	Beautiful beaches, vibrant festivals, and a hot climate
+	4
+	3
+	3
+	
+Thailand
+	Exotic temples, stunning islands, and a hot climate
+	4
+	2
+	3
+	
+South Africa
+	Safari adventures, diverse landscapes, and a hot climate
+	4
+	3
+	3
+	
+United States
+	Iconic cities, natural wonders, and a cold climate
+	2
+	4
+	4
+	
+France
+	Romantic atmosphere, world-class cuisine, and a cold climate
+	2
+	3
+	4
+	
+China
+	Great Wall, ancient history, and a cold climate
+	2
+	3
+	3
+	
+India
+	Rich culture, diverse traditions, and a hot climate
+	5
+	1
+	2
+	
+Egypt
+	Ancient pyramids, Nile River, and a hot climate
+	5
+	2
+	3
+	
+Mexico
+	Colorful culture, stunning beaches, and a hot climate
+	4
+	3
+	3
+	
+Russia
+	Vast landscapes, rich history, and a cold climate
+	4
+	3
+	3
+	
+United Kingdom
+	Historic landmarks, charming villages, and a cold climate
+	2
+	3
+	4
+	
+Greece
+	Mythology, picturesque islands, and a hot climate
+	4
+	3
+	3
+	
+Turkey
+	Cultural heritage, stunning coastlines, and a hot climate
+	4
+	3
+	3
+	
+Argentina
+	Tango, Patagonia, and a varied climate
+	3
+	3
+	3
+	
+New Zealand
+	Adventure sports, breathtaking landscapes, and a moderate climate
+	3
+	4
+	4
+	
+Malaysia
+	Rainforests, stunning beaches, and a hot climate
+	4
+	2
+	3
+	
+Sweden
+	Scenic beauty, cultural heritage, and a cold climate
+	3
+	3
+	4
+	
+Spain
+	Vibrant festivals, beautiful beaches, and a hot climate
+	4
+	3
+	4
+	
+South Korea
+	K-pop, traditional palaces, and a moderate climate
+	3
+	3
+	4
+	
+Seychelles
+	Idyllic beaches, turquoise waters, and diverse marine life
+	5
+	4
+	4
+	
+Mongolia
+	Horses, endless steppes, and a hot climate
+	4
+	2
+	4
+	
+Uganda
+	Kalimadjaro (just kidding), Lake Victoria (not kidding), freaking hot I guess.
+	5
+	1
+	2
+	
+Kenia
+	Kalimajaro, Masai, Hot climate
+	4
+	2
+	2
+	
+Afghanistan
+	Center of Asia, Creating luxury cars, Great climate
+	4
+	1
+	1
+	
