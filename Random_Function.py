@@ -10,20 +10,10 @@ def random_value(variable):
         return random.choice(variable)
     elif isinstance(variable, list):
         destination = random.choice(variable)
-        country_name = destination[0]
-        country_info = destination[1]
-        country_data = ',\n'.join(destination[2:])
-        return f"We do suggest you to take a look at data of: {country_name}\n{country_info}\n{country_data}"
+        #country_name = destination[0]
+        #country_info = destination[1]
+        #country_data = ',\n'.join(destination[2:])
+        #return (Sergey.ShowCountryInfo)
+        return destination
     else:
         return None  # Handle unsupported variable types
-
-database = [
-    ["Germany", "Rich history, vibrant cities, and a cool climate", "Climate: 2", "Price: 3", "Safety: 4"],
-    ["Japan", "A blend of tradition and modernity with pleasant temperatures", "Climate: 4", "Price: 3", "Safety: 4"],
-    ["Australia", "Stunning landscapes, diverse wildlife, and a sunny climate: 5", "Price: 5", "Safety: 5"],
-
-    
-]
-
-random_result = random_value(database)
-print(random_result)

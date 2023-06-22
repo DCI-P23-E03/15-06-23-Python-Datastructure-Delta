@@ -1,5 +1,19 @@
 from Random_Function import random_value
+def CreateAllDestinations():
+    return  list(database.keys())
 
+
+def PrintCountryInfo(country):
+    info = database[country]["Information"]
+    climate = database[country]["Climate"]
+    price = database[country]["Price"]
+    safety = database[country]["Safety"]
+
+    print("Country:", country)
+    print("Information:", info)
+    print("Climate:", climate)
+    print("Price:", price)
+    print("Safety:", safety)
 database = {
     "Germany": {
         "Information": "Rich history, vibrant cities, and a cool climate",
@@ -152,26 +166,13 @@ database = {
         "Safety": 4
     }
 }
-# Calling Random Function 
-random_result = random_value(database)
-print(random_result)
-
-
-def CreateAllDestinations():
-    return  list(database.keys())
-
-
-def PrintCountryInfo(country):
-    info = database[country]["Information"]
-    climate = database[country]["Climate"]
-    price = database[country]["Price"]
-    safety = database[country]["Safety"]
-
-    print("Country:", country)
-    print("Information:", info)
-    print("Climate:", climate)
-    print("Price:", price)
-    print("Safety:", safety)
-
 AllDestinations = CreateAllDestinations()
+
+# Calling Random Function 
+random_result = random_value(AllDestinations)
+print(random_result)
+PrintCountryInfo(random_result)
+
+
+
 print(AllDestinations)
