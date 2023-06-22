@@ -163,10 +163,18 @@ database = {
 
 database=Sergey.ReadDatabase()
 
-def CreateAllDestinations(dict):
-    return  list(dict.keys())
+"""
+def CreateAllDestinations(dicta):
+    #return  list(dicta.keys())
+    ListDist=[]
+    for key in dicta:
+        ListDist.append(key)
+    return ListDist
+"""
 
-AllDestinations = CreateAllDestinations(database)
+AllDestinations = Sergey.CreateAllDestinations(database)
+
+
 
 N=4 # number of menu items
 W=8 # width of menu item
@@ -238,6 +246,8 @@ def Execute(i,j):
         Mov=getch.getch()
         return Mov
     elif i==1 and j==3:
+        global AllDestinations
+        #AllDestinations = Sergey.CreateAllDestinations()
         Sergey.ShowCountryInfo(random.choice(AllDestinations), database)
         print("\nPress any key to return to menu, x to quit.")
         Mov=getch.getch()
@@ -264,14 +274,12 @@ def Execute(i,j):
         return Mov
     elif i==3 and j==1:
         Sergey.AppendDatabase(database)
-        AllDestinations = CreateAllDestinations(database)
+        AllDestinations = Sergey.CreateAllDestinations(database)
         #print(database)
         Sergey.WriteDatabase(database)
         print("\nPress any key to return to menu, x to quit.")
         Mov=getch.getch()
         return Mov
-    
-
 
 
 i=1

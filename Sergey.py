@@ -160,9 +160,11 @@ def ShowCountryInfo(country,database):
 def AppendDatabase(database):
     x("clear")
     CurStr=""
-    country=input("Enter a new country to add to our database: ")
+    country=input("Enter a new country to add to our database (enter q at any moment to quit): ")
     if country in database:
         print("We already have this one.")
+    if country.upper()=="Q":
+        return None
     else: 
         CurStr+=f"Enter a new country to add to our database: {country}\n"
         
@@ -177,6 +179,8 @@ def AppendDatabase(database):
                 print(CurStr)
                 print(f"Rate the climate of {country} "+colored("from 1 coldest to 5 hottest: ","red"))
             Climate=getch.getch()
+            if Climate.upper()=="Q":
+                return None
             if not Climate.isnumeric():
                 flag=1
             elif int(Climate)<1 or int(Climate)>5:
@@ -196,6 +200,8 @@ def AppendDatabase(database):
                 print(CurStr)
                 print(f"Rate the prices of {country} "+colored("from 1 cheapest to 5 most expensive: ","red"))
             Prices=getch.getch()
+            if Prices.upper()=="Q":
+                return None
             if not Prices.isnumeric():
                 flag=1
             elif int(Prices)<1 or int(Prices)>5:
@@ -215,6 +221,8 @@ def AppendDatabase(database):
                 print(CurStr)
                 print(f"Rate the safety of {country} "+colored("from 1 war zone to 5 safest: ","red"))
             Safety=getch.getch()
+            if Safety.upper()=="Q":
+                return None
             if not Safety.isnumeric():
                 flag=1
             elif int(Safety)<1 or int(Safety)>5:
@@ -228,6 +236,8 @@ def AppendDatabase(database):
         print(CurStr)
         #print("\n")
         Info=input(f"Write a few words about {country}: ")
+        if Info.upper()=="Q":
+            return None
         print("\nThank you for your input. We added it to our database.")
         database.update({
             country:{
@@ -238,6 +248,14 @@ def AppendDatabase(database):
                     }
                 })
 
-
+def CreateAllDestinations(dicta):
+    #dicta=ReadDatabase()
+    return  list(dicta.keys())
+    """
+    ListDist=[]
+    for key in dicta:
+        ListDist.append(key)
+    return ListDist
+    """
 
     
