@@ -1,3 +1,4 @@
+from Random_Function import random_value
 
 database = {
     "Germany": {
@@ -151,6 +152,10 @@ database = {
         "Safety": 4
     }
 }
+# Calling Random Function 
+random_result = random_value(database)
+print(random_result)
+
 
 def CreateAllDestinations():
     return  list(database.keys())
