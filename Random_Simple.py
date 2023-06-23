@@ -156,7 +156,7 @@ database = {
 
 destinations = list(database.keys())
 random_index = random.randint(0, len(destinations) - 1)
-random_destination = destinations[random_index]
+random_destination = destinations[random_index]  
 destination_data = database[random_destination]
 
 information = destination_data["Information"]

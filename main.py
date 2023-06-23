@@ -172,7 +172,4 @@ AllDestinations = CreateAllDestinations()
 random_result = random_value(AllDestinations)
 print(random_result)
 PrintCountryInfo(random_result)
-
-
-
 print(AllDestinations)
