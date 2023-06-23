@@ -52,6 +52,8 @@ def search_country(countries):
 
 
         if flag:
+            for country in matching_countries:
+                print(country)
             print(f"Sorry, there is no country starting with {letter}, change the last letter")
             letter=letter[:-1]
             CurStr=CurStr[:-1]
