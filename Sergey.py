@@ -145,17 +145,37 @@ def WriteDatabase(database):   # writes dictionary database to database.txt
             string+="\n" 
         f.write(string)
         
-def ShowCountryInfo(country,database):  # types info about (country) from (database). Numerical values for Prices and Safety are replaced with fixed short phrases
+def ShowCountryInfo(country, database):
     print("""
     Travel Destination Recommendation System\n
     Here, we want to make sure we recommend the best countries for you to travel.
     """)
-    Prices=["Extremely affordable!", "Quite affordable!", "Reasonable prices!", "High-level location!", "Luxury travel!"]
-    Safety=["For those who enjoy danger!", "For risk-lovers!", "For those keeping their cool!", "Relaxed travel!", "Everything is taken care of!"]
+    Prices = ["Extremely affordable!", "Quite affordable!", "Reasonable prices!", "High-level location!", "Luxury travel!"]
+    Safety = ["For those who enjoy danger!", "For risk-lovers!", "For those keeping their cool!", "Relaxed travel!", "Everything is taken care of!"]
+    
     if country in database:
-        print("Our recomendation is: "+country+ '\n'+ database[country]['Information']+"\n"+Prices[database[country]["Price"]-1]+"\n"+Safety[database[country]["Safety"]-1])
-    if country not in database:
+        print("Our recommendation is: " + country)
+        print(database[country]['Information'])
+        print("Prices: " + Prices[database[country]["Price"] - 1])
+        print("Safety: " + Safety[database[country]["Safety"] - 1])
+        
+        # Ask if the user wants to edit the country
+        edit_option = input("Do you want to edit the information for this country? (y/n): ")
+        if edit_option.lower() == "y":
+            edited_info = {}
+            
+            # Ask for new information
+            edited_info["Information"] = input("Enter new information for the country: ")
+            edited_info["Price"] = int(input("Rate the new prices for the country (1-5): "))
+            edited_info["Safety"] = int(input("Rate the new safety level for the country (1-5): "))
+            
+            # Update the database
+            database[country].update(edited_info)
+            print("Country information has been updated.")
+            
+    else:
         print(f"We are sorry, {country} is not in our database")
+
 
 def AppendDatabase(database): #Adds an entry to the database. Pretty self-explainatory
     x("clear")
@@ -165,8 +185,12 @@ def AppendDatabase(database): #Adds an entry to the database. Pretty self-explai
         print("We already have this one.")
     if country.upper()=="Q":
         return None
-    else: 
-        CurStr+=f"Enter a new country to add to our database: {country}\n"
+    elif country in database:
+        print(f"Editing {country}...")
+        CurStr += f"Editing {country}\n"
+    else:
+        print("Adding a new country...")
+        CurStr += f"Adding a new country: {country}\n"
         
         flag=0
         while True:
