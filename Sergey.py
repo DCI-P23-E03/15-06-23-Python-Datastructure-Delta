@@ -124,6 +124,7 @@ def PrintMenu(i,j,N,W):     #prints the menu
         print(top+middle+bottomOpen+DropOutMenu)
 
 def ReadDatabase(): # reads dictionary from database.txt
+    x("chmod 664 database.txt")
     with open("database.txt","at"):
         pass
     database={}
@@ -134,9 +135,12 @@ def ReadDatabase(): # reads dictionary from database.txt
             #print(i)
             database[string[i].title()]={"Information":string[i+1],"Climate":int(string[i+2]),"Price":int(string[i+3]),"Safety":int(string[i+4])}
         #print(database)
+    x("chmod 444 database.txt")
+    getch.getch()
     return database
 
 def WriteDatabase(database):   # writes dictionary database to database.txt
+    x("chmod 664 database.txt")
     with open("database.txt","wt") as f:
         string=""
         for i,j in database.items():
@@ -146,6 +150,7 @@ def WriteDatabase(database):   # writes dictionary database to database.txt
                 string+=str(k)+"\n\t"
             string+="\n" 
         f.write(string)
+    x("chmod 444 database.txt")
         
 def ShowCountryInfo(country,database):  # types info about (country) from (database). Numerical values for Prices and Safety are replaced with fixed short phrases
     print("""

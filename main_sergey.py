@@ -165,13 +165,13 @@ database = {
 
 database=Sergey.ReadDatabase()
 
-while len(database)<3:
+while len(database)<4:
     Igor.clear_screen()
-    print(f"The database consists only of {len(database)} entries. Must be at least 3. Please add {3-len(database)} more. Press any key.")
+    print(f"The database consists only of {len(database)} entries. Must be at least 4. Please add {4-len(database)} more. Press any key.")
     
     getch.getch()
     Sergey.AppendDatabase(database)
-    if len(database)==3:
+    if len(database)==4:
         Sergey.WriteDatabase(database)
     getch.getch()
 
