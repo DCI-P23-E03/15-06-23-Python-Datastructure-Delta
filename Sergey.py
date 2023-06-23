@@ -136,7 +136,6 @@ def ReadDatabase(): # reads dictionary from database.txt
             database[string[i].title()]={"Information":string[i+1],"Climate":int(string[i+2]),"Price":int(string[i+3]),"Safety":int(string[i+4])}
         #print(database)
     x("chmod 444 database.txt")
-    getch.getch()
     return database
 
 def WriteDatabase(database):   # writes dictionary database to database.txt

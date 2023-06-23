@@ -4,7 +4,7 @@ from termcolor import colored
 # pip install py-getch
 import getch
 import Sergey
-import random
+#import random
 import Random_Function
 import Igor
 
