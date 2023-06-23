@@ -124,6 +124,8 @@ def PrintMenu(i,j,N,W):     #prints the menu
         print(top+middle+bottomOpen+DropOutMenu)
 
 def ReadDatabase(): # reads dictionary from database.txt
+    with open("database.txt","at"):
+        pass
     database={}
     with open("database.txt") as f:
         string=f.read().replace("\t","").splitlines()
@@ -160,13 +162,13 @@ def ShowCountryInfo(country,database):  # types info about (country) from (datab
 def AppendDatabase(database): #Adds an entry to the database. Pretty self-explainatory
     x("clear")
     CurStr=""
-    country=input("Enter a new country to add to our database (enter q at any moment to quit): ").capitalize()
+    country=input("Enter a new country to add to our database (enter q at any moment to quit): ").title()
     if country in database:
         print("We already have this one.")
-    if country.upper()=="Q":
+    elif country.upper()=="Q":
         return None
     else: 
-        CurStr+=f"Enter a new country to add to our database: {country}\n"
+        CurStr+=f"Enter a new country to add to our database (enter q at any moment to quit): {country}\n"
         
         flag=0
         while True:
