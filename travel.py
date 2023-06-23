@@ -158,7 +158,7 @@ Here, we want to make sure we recommend the best countries for you to travel.
 choose_country = input('Please enter the country of your choice: ')
 for country in database:
     if choose_country in country:
-        # print(choose_country, 'is', database[country])
+        # print(choose_country, 'is', database[country]['Information'])
         print(choose_country, 'is', database[country]['Information'])
     
 if choose_country not in database:
